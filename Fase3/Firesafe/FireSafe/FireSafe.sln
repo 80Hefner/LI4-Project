@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireSafe", "FireSafe.csproj", "{ECCEFD90-066C-4892-ACE2-4961128C285D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECCEFD90-066C-4892-ACE2-4961128C285D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECCEFD90-066C-4892-ACE2-4961128C285D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECCEFD90-066C-4892-ACE2-4961128C285D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECCEFD90-066C-4892-ACE2-4961128C285D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB32A00F-4716-4B6C-875B-CC6A908710E9}
+	EndGlobalSection
+EndGlobal
