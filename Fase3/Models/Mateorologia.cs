@@ -6,6 +6,7 @@ namespace Fase3.Models
 {
     public class Meteorologia
     {
+        public int ID_Meteorologia { get; set; }
         public float Temp_atual { get; set; }
         public float Temp_min { get; set; }
         public float Temp_max { get; set; }
@@ -20,8 +21,9 @@ namespace Fase3.Models
 
         }
 
-        public Meteorologia(float temp_atual, float temp_min, float temp_max, float vento_vel, string vento_dir, int humidade, int pressao_atm, string estado)
+        public Meteorologia(int id, float temp_atual, float temp_min, float temp_max, float vento_vel, string vento_dir, int humidade, int pressao_atm, string estado)
         {
+            this.ID_Meteorologia = id;
             this.Temp_atual = temp_atual;
             this.Temp_min = temp_min;
             this.Temp_max = temp_max;

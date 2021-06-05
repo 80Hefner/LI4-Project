@@ -6,6 +6,7 @@ namespace Fase3.Models
 {
     public class Localizacao
     {
+        public int ID_Localizacao { get; set; }
         public string Freguesia { get; set; }
         public string Concelho { get; set; }
         public string Distrito { get; set; }
@@ -15,8 +16,9 @@ namespace Fase3.Models
 
         }
 
-        public Localizacao(string freguesia, string concelho, string distrito)
+        public Localizacao(int id, string freguesia, string concelho, string distrito)
         {
+            this.ID_Localizacao = id;
             this.Freguesia = freguesia;
             this.Concelho = concelho;
             this.Distrito = distrito;

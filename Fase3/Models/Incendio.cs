@@ -6,6 +6,7 @@ namespace Fase3.Models
 {
     public class Incendio
     {
+        public int ID_Incendio { get; set; }
         public Localizacao localizacao { get; set; }
         public Meteorologia meteorologia { get; set; }
         public int Meios_Humanos { get; set; }
@@ -20,8 +21,9 @@ namespace Fase3.Models
 
         }
 
-        public Incendio(Localizacao localizacao, Meteorologia meteorologia, int meios_humanos, int meios_terrestres, int meios_aereos, int estado, string latitude, string longitude)
+        public Incendio(int id, Localizacao localizacao, Meteorologia meteorologia, int meios_humanos, int meios_terrestres, int meios_aereos, int estado, string latitude, string longitude)
         {
+            this.ID_Incendio = id;
             this.localizacao = localizacao;
             this.meteorologia = meteorologia;
             this.Meios_Humanos = meios_humanos;

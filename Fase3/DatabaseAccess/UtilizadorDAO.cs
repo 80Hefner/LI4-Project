@@ -23,7 +23,7 @@ namespace Fase3.DatabseAccess
                 using (SqlCommand command = con.Fetch().CreateCommand())
                 {
                     command.CommandType = CommandType.Text;
-                    command.CommandText = "INSERT INTO [Utilizador] Values(@username, @password, @email, @telemovel)";
+                    command.CommandText = "INSERT INTO [Utilizador] Values(1, @username, @password, @email, @telemovel)";
 
                     command.Parameters.Add("@username", SqlDbType.VarChar).Value = novoUtilizador.Nome;
                     command.Parameters.Add("@password", SqlDbType.VarChar).Value = novoUtilizador.Password;
@@ -64,6 +64,7 @@ namespace Fase3.DatabseAccess
                         DataRow linha = resultado.Rown[0];
 
                         Utilizador utilizador = new Utilizador(
+                            int.Parse(linha["Id"].ToString()),
                             linha["Nome"].ToString(),
                             linha["Password"].ToString(),
                             linha["Email"].ToString(),
@@ -103,7 +104,7 @@ namespace Fase3.DatabseAccess
                     {
                         DataRow linha = resultado.Rown[0];
 
-                        id = int.Parse(row["Id"].ToString());
+                        id = int.Parse(linha["Id"].ToString());
 
                         return utilizador;
                     }
