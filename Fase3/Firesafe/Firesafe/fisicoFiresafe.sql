@@ -12,7 +12,7 @@ USE [Firesafe];
 GO
 
 -- -----------------------------------------------------
--- Table `Firesafe`.`Utilizador`
+-- Table [Firesafe].[Utilizador]
 -- -----------------------------------------------------
 CREATE TABLE [Utilizador] (
   [Id] INT NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE [Utilizador] (
 GO
 
 -- -----------------------------------------------------
--- Table `Firesafe`.`Localizacao`
+-- Table [Firesafe].[Localizacao]
 -- -----------------------------------------------------
 CREATE TABLE [Localizacao] (
   [Id] INT NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE [Localizacao] (
 GO
 
 -- -----------------------------------------------------
--- Table `Firesafe`.`Meteorologia`
+-- Table [Firesafe].[Meteorologia]
 -- -----------------------------------------------------
 CREATE TABLE [Meteorologia] (
   [Id] INT NOT NULL,
@@ -52,7 +52,7 @@ GO
 
 
 -- -----------------------------------------------------
--- Table `Firesafe`.`Incendio`
+-- Table [Firesafe].[Incendio]
 -- -----------------------------------------------------
 CREATE TABLE [Incendio] (
   [Id] INT NOT NULL,
@@ -61,9 +61,11 @@ CREATE TABLE [Incendio] (
   [Meios_humanos] INT NOT NULL,
   [Meios_terrestres] INT NOT NULL,
   [Meios_aereos] INT NOT NULL,
-  [Latitude] VARCHAR(45) NOT NULL,
-  [Longitude] VARCHAR(45) NOT NULL,
+  [Latitude] FLOAT NOT NULL,
+  [Longitude] FLOAT NOT NULL,
   [Estado] INT NOT NULL,
+  [Inicio] SMALLDATETIME NOT NULL,
+  [Fim] SMALLDATETIME,
   PRIMARY KEY ([Id]),
   CONSTRAINT [fk_Incendio_Localizacao1]
     FOREIGN KEY ([Localizacao_Id])
@@ -85,7 +87,7 @@ GO
   
 
 -- -----------------------------------------------------
--- Table `Firesafe`.`Favorito`
+-- Table [Firesafe].[Favorito]
 -- -----------------------------------------------------
 CREATE TABLE [Favorito] (
   [Utilizador_Id] INT NOT NULL,
