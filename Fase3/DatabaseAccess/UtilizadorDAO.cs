@@ -69,9 +69,10 @@ namespace Fase3.DatabseAccess
                             linha["Email"].ToString(),
                             linha["Telemovel"].ToString());
 
-                        con.Close();
                         return utilizador;
                     }
+
+                    con.Close();
                 }
             }
 
@@ -90,8 +91,8 @@ namespace Fase3.DatabseAccess
                 command.CommandType = CommandType.Text;
                 command.CommandText = "SELECT Id FROM [Utilizador] WHERE Email=@Email AND Password=@Password";
 
-                command.Parameters.Add("@Email", SqlDbType.VarChar);
-                command.Parameters["@Email"].Value = email;
+                command.Parameters.Add("@Email", SqlDbType.VarChar).Value = email;
+                command.Parameters.Add("@Password", SqlDbType.VarChar).Value = password;
 
                 using (SqlDataAdapter adaptador = new SqlDataAdapter(command))
                 {
@@ -102,15 +103,12 @@ namespace Fase3.DatabseAccess
                     {
                         DataRow linha = resultado.Rown[0];
 
-                        Utilizador utilizador = new Utilizador(
-                            linha["Nome"].ToString(),
-                            linha["Password"].ToString(),
-                            linha["Email"].ToString(),
-                            linha["Telemovel"].ToString());
+                        id = int.Parse(row["Id"].ToString());
 
-                        con.Close();
                         return utilizador;
                     }
+                    
+                    con.Close();
                 }
             }
 
