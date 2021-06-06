@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\luise\\Documents\\GitHub\\LI4-Project\\Fase3\\Firesafe\\FireSafe\\FireSafe.csproj": {}
+    "C:\\Users\\luise\\Documents\\GitHub\\LI4-Project\\Fase 3\\Firesafe\\FireSafe\\FireSafe.csproj": {}
   },
   "projects": {
-    "C:\\Users\\luise\\Documents\\GitHub\\LI4-Project\\Fase3\\Firesafe\\FireSafe\\FireSafe.csproj": {
+    "C:\\Users\\luise\\Documents\\GitHub\\LI4-Project\\Fase 3\\Firesafe\\FireSafe\\FireSafe.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\luise\\Documents\\GitHub\\LI4-Project\\Fase3\\Firesafe\\FireSafe\\FireSafe.csproj",
+        "projectUniqueName": "C:\\Users\\luise\\Documents\\GitHub\\LI4-Project\\Fase 3\\Firesafe\\FireSafe\\FireSafe.csproj",
         "projectName": "FireSafe",
-        "projectPath": "C:\\Users\\luise\\Documents\\GitHub\\LI4-Project\\Fase3\\Firesafe\\FireSafe\\FireSafe.csproj",
+        "projectPath": "C:\\Users\\luise\\Documents\\GitHub\\LI4-Project\\Fase 3\\Firesafe\\FireSafe\\FireSafe.csproj",
         "packagesPath": "C:\\Users\\luise\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\luise\\Documents\\GitHub\\LI4-Project\\Fase3\\Firesafe\\FireSafe\\obj\\",
+        "outputPath": "C:\\Users\\luise\\Documents\\GitHub\\LI4-Project\\Fase 3\\Firesafe\\FireSafe\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

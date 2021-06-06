@@ -5,17 +5,25 @@
 -- -----------------------------------------------------
 -- Schema Firesafe
 -- -----------------------------------------------------
-CREATE DATABASE [Firesafe];
+IF NOT EXISTS(SELECT 1 FROM sys.databases WHERE name='FireSafe')
+    CREATE DATABASE [FireSafe]
 GO
 
-USE [Firesafe];
+USE [Firesafe]
+GO
+
+DROP TABLE IF EXISTS [dbo].[Favorito];
+DROP TABLE IF EXISTS [dbo].[Incendio];
+DROP TABLE IF EXISTS [dbo].[Utilizador];
+DROP TABLE IF EXISTS [dbo].[Localizacao];
+DROP TABLE IF EXISTS [dbo].[Meteorologia];
 GO
 
 -- -----------------------------------------------------
--- Table [Firesafe].[Utilizador]
+-- Table [Firesafe].[dbo].[Utilizador]
 -- -----------------------------------------------------
-CREATE TABLE [Utilizador] (
-  [Id] INT NOT NULL,
+CREATE TABLE [dbo].[Utilizador] (
+  [Id] INT IDENTITY(1,1) NOT NULL,
   [Nome] VARCHAR(45) NOT NULL,
   [Password] VARCHAR(45) NOT NULL,
   [Email] VARCHAR(90) NOT NULL,
@@ -24,10 +32,10 @@ CREATE TABLE [Utilizador] (
 GO
 
 -- -----------------------------------------------------
--- Table [Firesafe].[Localizacao]
+-- Table [Firesafe].[dbo].[Localizacao]
 -- -----------------------------------------------------
-CREATE TABLE [Localizacao] (
-  [Id] INT NOT NULL,
+CREATE TABLE [dbo].[Localizacao] (
+  [Id] INT IDENTITY(1,1) NOT NULL,
   [Distrito] VARCHAR(45) NOT NULL,
   [Concelho] VARCHAR(45) NOT NULL,
   [Freguesia] VARCHAR(45) NOT NULL,
@@ -35,10 +43,10 @@ CREATE TABLE [Localizacao] (
 GO
 
 -- -----------------------------------------------------
--- Table [Firesafe].[Meteorologia]
+-- Table [Firesafe].[dbo].[Meteorologia]
 -- -----------------------------------------------------
-CREATE TABLE [Meteorologia] (
-  [Id] INT NOT NULL,
+CREATE TABLE [dbo].[Meteorologia] (
+  [Id] INT IDENTITY(1,1) NOT NULL,
   [Temp_atual] FLOAT NOT NULL,
   [Temp_min] FLOAT NOT NULL,
   [Temp_max] FLOAT NOT NULL,
@@ -52,10 +60,10 @@ GO
 
 
 -- -----------------------------------------------------
--- Table [Firesafe].[Incendio]
+-- Table [Firesafe].[dbo].[Incendio]
 -- -----------------------------------------------------
-CREATE TABLE [Incendio] (
-  [Id] INT NOT NULL,
+CREATE TABLE [dbo].[Incendio] (
+  [Id] INT IDENTITY(1,1) NOT NULL,
   [Meteorologia_Id] INT NOT NULL,
   [Localizacao_Id] INT NOT NULL,
   [Meios_humanos] INT NOT NULL,
@@ -87,9 +95,9 @@ GO
   
 
 -- -----------------------------------------------------
--- Table [Firesafe].[Favorito]
+-- Table [Firesafe].[dbo].[Favorito]
 -- -----------------------------------------------------
-CREATE TABLE [Favorito] (
+CREATE TABLE [dbo].[Favorito] (
   [Utilizador_Id] INT NOT NULL,
   [Localizacao_Id] INT NOT NULL,
   PRIMARY KEY ([Utilizador_Id], [Localizacao_Id]),
