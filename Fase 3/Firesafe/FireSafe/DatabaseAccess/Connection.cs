@@ -11,7 +11,11 @@ namespace Fase3.DatabseAccess
 
         public Connection()
         {
-            _connection = new SqlConnection("Server=DESKTOP-EQMTRE4;Database=Firesafe;Trusted_Connection=True;");
+            // tourette
+            //_connection = new SqlConnection("Server=DESKTOP-EQMTRE4;Database=Firesafe;Trusted_Connection=True;");
+            
+            // hefner
+            _connection = new SqlConnection("Server=DESKTOP-EH1Q2CR;Database=Firesafe;Trusted_Connection=True;");  
         }
 
         public void Close()
