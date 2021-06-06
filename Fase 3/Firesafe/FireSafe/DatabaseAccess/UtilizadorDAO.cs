@@ -70,6 +70,33 @@ namespace Fase3.DatabseAccess
                             linha["Email"].ToString(),
                             linha["Telemovel"].ToString());
 
+                        List<Localizacao> locFavoritas = null;
+
+                        using (SqlCommand commandFav = con.Fetch().CreateCommand())
+                        {
+                            commandFav.CommandType = CommandType.Text;
+                            commandFav.CommandText = "SELECT * FROM [Favorito] WHERE Utilizador_Id=@Utilizador_Id";
+
+                            commandFav.Parameters.Add("@Utilizador_Id", SqlDbType.Int).Value = utilizador.ID_Utilizador;
+
+                            using (SqlDataAdapter adaptadorFav = new SqlDataAdapter(commandFav))
+                            {
+                                DataTable resultadoFav = new DataTable();
+                                adaptadorFav.Fill(resultadoFav);
+
+                                if (resultadoFav.Rows.Count > 0)
+                                {
+                                    for (int linhaFav = 0; linhaFav < resultadoFav.Rows.Count; linhaFav++)
+                                    {
+                                        Localizacao loc = utilizador.LocalizacaoDAO.FindLocById(int.Parse(resultado.Rows[linhaFav]["Id"].ToString()));
+                                        locFavoritas.Add(loc);
+                                    }
+                                }
+                            }
+                        }
+
+                        utilizador.localizacoesFavoritas = locFavoritas;
+
                         return utilizador;
                     }
 
