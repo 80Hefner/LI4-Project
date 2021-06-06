@@ -4,28 +4,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<footer id="footer" style="max-height:100%">
-    <h2 style="font-size: 72px">Sign In</h2>
+<footer id="footer" style="max-height:100%; padding-top: 10%">
+    <h2 style="font-size: 72px; text-align:center">INICIAR SESSAO</h2>
     <div style="margin-left:40%">
         @using (Html.BeginForm())
         {
-            <div class="field" style="max-width:30%">
+
+            <div class="field" style="max-width: 30%; padding-top: 5%">
                 @Html.LabelFor(model => model.Email, null)
                 @Html.EditorFor(model => model.Email, null)
-                @Html.ValidationMessageFor(model => model.Email, "", null)
             </div>
-            <div class="field" style="max-width:30%">
+            <div class="field" style="max-width: 30%; padding-top: 2.5%">
                 @Html.LabelFor(model => model.Password, null)
                 @Html.EditorFor(model => model.Password, null)
-                @Html.ValidationMessageFor(model => model.Password, "", null)
             </div>
-            @Html.ValidationSummary(false)
-            <ul class="actions">
-                <li><input value="Login" class="button alt" type="submit"></li>
-            </ul>
+
+            <div class="actions" style="margin-left: 12.5%; padding-top: 5% ">
+                <input value="Login" class="button alt" type="submit">
+            </div>
         }
-    </div>
-    <div class="copyright">
-        &copy; FireSafe
     </div>
 </footer>

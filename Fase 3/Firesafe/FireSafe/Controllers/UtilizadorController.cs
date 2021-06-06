@@ -28,8 +28,10 @@ namespace FireSafe.Controllers
                 {
                     return RedirectToAction("Index", "Utilizador");
                 }
+            } else
+            {
+                ModelState.AddModelError("", "Wrong Email or Password");
             }
-            ModelState.AddModelError("", "Wrong Email or Password");
             return View(model);
         }
     }
