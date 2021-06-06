@@ -1,5 +1,5 @@
-﻿using Fase3.DatabseAccess;
-using Fase3.Models;
+﻿using FireSafe.DatabaseAccess;
+using FireSafe.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -17,7 +17,7 @@ namespace FireSafe.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Login(LoginModel model)
+        public IActionResult Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
@@ -26,17 +26,7 @@ namespace FireSafe.Controllers
 
                 if (idUser != -1)
                 {
-                    Utilizador user = userDAO.FindUserByEmail(model.Email);
-                    var claims = new List<Claim>
-                    {
-                        new Claim(ClaimTypes.Name, model.Email),
-                        new Claim(ClaimTypes.Sid, idUser.ToString())
-                    };
-                    ClaimsIdentity identidadeUtilizador = new ClaimsIdentity(claims, "login");
-                    ClaimsPrincipal claimPrincipal = new ClaimsPrincipal(identidadeUtilizador);
-
-                    await HttpContext.SignInAsync(claimPrincipal);
-                    return RedirectToAction("Index", "User", new { area = "" });
+                    return RedirectToAction("Index", "Utilizador");
                 }
             }
             ModelState.AddModelError("", "Wrong Email or Password");

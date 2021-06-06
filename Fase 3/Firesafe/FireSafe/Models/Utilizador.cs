@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Fase3.DatabseAccess;
-using Fase3.Models;
+using FireSafe.Models;
 using FireSafe.DatabaseAccess;
 
-namespace Fase3.Models
+namespace FireSafe.Models
 {
     public class Utilizador
     {

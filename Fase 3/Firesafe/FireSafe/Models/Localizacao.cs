@@ -1,8 +1,8 @@
 ﻿using System;
-using Fase3.DatabseAccess;
-using Fase3.Models;
+using FireSafe.DatabaseAccess;
+using FireSafe.Models;
 
-namespace Fase3.Models
+namespace FireSafe.Models
 {
     public class Localizacao
     {

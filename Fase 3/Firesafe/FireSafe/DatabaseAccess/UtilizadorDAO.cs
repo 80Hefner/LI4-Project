@@ -1,13 +1,12 @@
 using System;
-using Fase3.DatabseAccess;
-using Fase3.Models;
+using FireSafe.Models;
 using System.Data.SqlClient;
 using System.Data;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace Fase3.DatabseAccess
+namespace FireSafe.DatabaseAccess
 {
     public class UtilizadorDAO
     {
@@ -70,7 +69,7 @@ namespace Fase3.DatabseAccess
                             linha["Email"].ToString(),
                             linha["Telemovel"].ToString());
 
-                        List<Localizacao> locFavoritas = null;
+                        List<Localizacao> locFavoritas = new List<Localizacao>();
 
                         using (SqlCommand commandFav = con.Fetch().CreateCommand())
                         {
@@ -88,7 +87,8 @@ namespace Fase3.DatabseAccess
                                 {
                                     for (int linhaFav = 0; linhaFav < resultadoFav.Rows.Count; linhaFav++)
                                     {
-                                        Localizacao loc = utilizador.LocalizacaoDAO.FindLocById(int.Parse(resultado.Rows[linhaFav]["Id"].ToString()));
+                                        DataRow linhaLocFav = resultadoFav.Rows[linhaFav];
+                                        Localizacao loc = utilizador.LocalizacaoDAO.FindLocById(int.Parse(linhaLocFav["Localizacao_Id"].ToString()));
                                         locFavoritas.Add(loc);
                                     }
                                 }

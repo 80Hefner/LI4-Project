@@ -1,9 +1,8 @@
 ﻿using System;
-using Fase3.DatabseAccess;
-using Fase3.Models;
+using FireSafe.Models;
 using System.Data.SqlClient;
 
-namespace Fase3.DatabseAccess
+namespace FireSafe.DatabaseAccess
 {
     public class Connection
     {
@@ -12,10 +11,10 @@ namespace Fase3.DatabseAccess
         public Connection()
         {
             // tourette
-            //_connection = new SqlConnection("Server=DESKTOP-EQMTRE4;Database=Firesafe;Trusted_Connection=True;");
+            _connection = new SqlConnection("Server=DESKTOP-EQMTRE4;Database=Firesafe;Trusted_Connection=True;");
             
             // hefner
-            _connection = new SqlConnection("Server=DESKTOP-EH1Q2CR;Database=Firesafe;Trusted_Connection=True;");  
+            //_connection = new SqlConnection("Server=DESKTOP-EH1Q2CR;Database=Firesafe;Trusted_Connection=True;");  
         }
 
         public void Close()
