@@ -35,3 +35,12 @@ C:\Users\luise\Documents\GitHub\LI4-Project\Fase3\Firesafe\FireSafe\obj\Debug\ne
 C:\Users\luise\Documents\GitHub\LI4-Project\Fase3\Firesafe\FireSafe\obj\Debug\netcoreapp3.1\FireSafe.pdb
 C:\Users\luise\Documents\GitHub\LI4-Project\Fase3\Firesafe\FireSafe\obj\Debug\netcoreapp3.1\FireSafe.genruntimeconfig.cache
 C:\Users\luise\Documents\GitHub\LI4-Project\Fase3\Firesafe\FireSafe\obj\Debug\netcoreapp3.1\FireSafe.csproj.CopyComplete
+C:\Users\Utilizador\Desktop\Universidade\3ano\2Semestre\LI4\LI4-Project\Fase 3\Firesafe\FireSafe\obj\Debug\netcoreapp3.1\FireSafe.csproj.AssemblyReference.cache
+C:\Users\Utilizador\Desktop\Universidade\3ano\2Semestre\LI4\LI4-Project\Fase 3\Firesafe\FireSafe\obj\Debug\netcoreapp3.1\FireSafe.AssemblyInfoInputs.cache
+C:\Users\Utilizador\Desktop\Universidade\3ano\2Semestre\LI4\LI4-Project\Fase 3\Firesafe\FireSafe\obj\Debug\netcoreapp3.1\FireSafe.AssemblyInfo.cs
+C:\Users\Utilizador\Desktop\Universidade\3ano\2Semestre\LI4\LI4-Project\Fase 3\Firesafe\FireSafe\obj\Debug\netcoreapp3.1\FireSafe.csproj.CoreCompileInputs.cache
+C:\Users\Utilizador\Desktop\Universidade\3ano\2Semestre\LI4\LI4-Project\Fase 3\Firesafe\FireSafe\obj\Debug\netcoreapp3.1\FireSafe.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Utilizador\Desktop\Universidade\3ano\2Semestre\LI4\LI4-Project\Fase 3\Firesafe\FireSafe\obj\Debug\netcoreapp3.1\FireSafe.RazorAssemblyInfo.cache
+C:\Users\Utilizador\Desktop\Universidade\3ano\2Semestre\LI4\LI4-Project\Fase 3\Firesafe\FireSafe\obj\Debug\netcoreapp3.1\FireSafe.RazorAssemblyInfo.cs
+C:\Users\Utilizador\Desktop\Universidade\3ano\2Semestre\LI4\LI4-Project\Fase 3\Firesafe\FireSafe\obj\Debug\netcoreapp3.1\FireSafe.dll
+C:\Users\Utilizador\Desktop\Universidade\3ano\2Semestre\LI4\LI4-Project\Fase 3\Firesafe\FireSafe\obj\Debug\netcoreapp3.1\FireSafe.pdb

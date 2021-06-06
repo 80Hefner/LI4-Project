@@ -14,7 +14,7 @@ namespace Fase3.DatabseAccess
 
         public bool insereNovoUtilizador (Utilizador novoUtilizador)
         {
-            Utilizador u = findUserByEmail(novoUtilizador.Email);
+            Utilizador u = FindUserByEmail(novoUtilizador.Email);
 
             if (u == null)
             {
@@ -23,16 +23,16 @@ namespace Fase3.DatabseAccess
                 using (SqlCommand command = con.Fetch().CreateCommand())
                 {
                     command.CommandType = CommandType.Text;
-                    command.CommandText = "INSERT INTO [Utilizador] Values(1, @username, @password, @email, @telemovel)";
+                    command.CommandText = "INSERT INTO [Utilizador] Values(@username, @password, @email, @telemovel)";
 
-                    command.Parameters.Add("@username", SqlDbType.VarChar).Value = novoUtilizador.Nome;
+                    command.Parameters.Add("@username", SqlDbType.VarChar).Value = novoUtilizador.Username;
                     command.Parameters.Add("@password", SqlDbType.VarChar).Value = novoUtilizador.Password;
                     command.Parameters.Add("@email", SqlDbType.VarChar).Value = novoUtilizador.Email;
                     command.Parameters.Add("@telemovel", SqlDbType.VarChar).Value = novoUtilizador.Telemovel;
 
                     command.ExecuteScalar();
 
-                    con.close();
+                    con.Close();
                     return true;
                 }
             }
@@ -42,7 +42,7 @@ namespace Fase3.DatabseAccess
 
 
 
-        public Utilizador findUserByEmail (string email)
+        public Utilizador FindUserByEmail (string email)
         {
             Connection con = new Connection();
 
@@ -59,9 +59,9 @@ namespace Fase3.DatabseAccess
                     DataTable resultado = new DataTable();
                     adaptador.Fill(resultado);
 
-                    if (resultado.Rown.Count > 0)
+                    if (resultado.Rows.Count > 0)
                     {
-                        DataRow linha = resultado.Rown[0];
+                        DataRow linha = resultado.Rows[0];
 
                         Utilizador utilizador = new Utilizador(
                             int.Parse(linha["Id"].ToString()),
@@ -81,7 +81,7 @@ namespace Fase3.DatabseAccess
         }
 
 
-        public int Login (String email, String password)
+        public int LoginDAO (String email, String password)
         {
             int id = -1;
 
@@ -100,19 +100,18 @@ namespace Fase3.DatabseAccess
                     DataTable resultado = new DataTable();
                     adaptador.Fill(resultado);
 
-                    if (resultado.Rown.Count > 0)
+                    if (resultado.Rows.Count > 0)
                     {
-                        DataRow linha = resultado.Rown[0];
+                        DataRow linha = resultado.Rows[0];
 
                         id = int.Parse(linha["Id"].ToString());
-
-                        return utilizador;
                     }
                     
                     con.Close();
                 }
             }
 
+            return id;
         }
     }
 }
