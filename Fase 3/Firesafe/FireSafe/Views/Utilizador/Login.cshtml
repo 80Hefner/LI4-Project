@@ -1,7 +1,7 @@
 ﻿@model FireSafe.Models.LoginModel
 @{
     ViewBag.Title = "Login";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutHomeOnly.cshtml";
 }
 
 <footer id="footer" style="max-height:100%; padding-top: 10%">
@@ -10,17 +10,21 @@
         @using (Html.BeginForm())
         {
 
-            <div class="field" style="max-width: 30%; padding-top: 5%">
+            <div class="field" style="max-width: 30%; padding-top: 5%; text-align: center">
                 @Html.LabelFor(model => model.Email, null)
                 @Html.EditorFor(model => model.Email, null)
             </div>
-            <div class="field" style="max-width: 30%; padding-top: 2.5%">
+            <div class="field" style="max-width: 30%; padding-top: 2.5%; text-align: center">
                 @Html.LabelFor(model => model.Password, null)
                 @Html.EditorFor(model => model.Password, null)
             </div>
 
-            <div class="actions" style="margin-left: 12.5%; padding-top: 5% ">
+            <div class="actions" style="margin-left: 12.5%; padding-top: 5%">
                 <input value="Login" class="button alt" type="submit">
+            </div>
+
+            <div class="actions nav-item" style="margin-left: 0%; padding-top: 5%">
+                <a class="nav-link text-dark button alt" asp-area="" asp-controller="Utilizador" asp-action="Register"><b>Registar Novo utilizador</b></a>
             </div>
         }
     </div>

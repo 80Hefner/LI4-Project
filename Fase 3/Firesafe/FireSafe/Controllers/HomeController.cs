@@ -6,11 +6,15 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using FireSafe.Utils;
+using Microsoft.AspNetCore.Http;
 
 namespace FireSafe.Controllers
 {
     public class HomeController : Controller
     {
+        public static string utililzadorAtual = "";
+
         private readonly ILogger<HomeController> _logger;
         
         public HomeController(ILogger<HomeController> logger)
@@ -20,6 +24,12 @@ namespace FireSafe.Controllers
 
         public IActionResult Index()
         {
+            return View();
+        }
+
+        public IActionResult HomeLogado()
+        {
+            ViewBag.username = utililzadorAtual;
             return View();
         }
 

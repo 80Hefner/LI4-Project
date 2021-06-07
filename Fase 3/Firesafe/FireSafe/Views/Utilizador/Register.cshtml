@@ -1,0 +1,40 @@
+﻿@model FireSafe.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutHomeOnly.cshtml";
+}
+
+<footer id="footer" style="max-height:100%; padding-top: 5%">
+    <h2 style="font-size: 72px; text-align:center">REGISTAR UTILIZADOR</h2>
+    <div style="margin-left:40%">
+        @using (Html.BeginForm())
+        {
+
+        <div class="field" style="max-width: 30%; padding-top: 7.5%; text-align: center ">
+            @Html.LabelFor(model => model.Username, null)
+            @Html.EditorFor(model => model.Username, null)
+        </div>
+        <div class="field" style="max-width: 30%; padding-top: 5%; text-align: center">
+            @Html.LabelFor(model => model.Email, null)
+            @Html.EditorFor(model => model.Email, null)
+        </div>
+        <div class="field" style="max-width: 30%; padding-top: 5%; text-align: center">
+            @Html.LabelFor(model => model.Password, null)
+            @Html.EditorFor(model => model.Password, null)
+        </div>
+        <div class="field" style="max-width: 30%; padding-top: 1%; text-align: center">
+            @Html.LabelFor(model => model.PasswordConfirm, null)
+            @Html.EditorFor(model => model.PasswordConfirm, null)
+        </div>
+        <div class="field" style="max-width: 30%; padding-top: 5%; text-align: center">
+            @Html.LabelFor(model => model.Telemovel, null)
+            @Html.EditorFor(model => model.Telemovel, null)
+        </div>
+
+        <div class="actions" style="margin-left: 5%; padding-top: 7.5%">
+            <input value="Registar Utilizador" class="button alt" type="submit">
+        </div>
+        }
+        
+    </div>
+</footer>
