@@ -75,8 +75,6 @@ namespace FireSafe.DatabaseAccess
 
             return null;
         }
-
-
         public bool insereNovoUtilizador (Utilizador novoUtilizador)
         {
             Utilizador u = FindUserByEmail(novoUtilizador.Email);
@@ -104,9 +102,6 @@ namespace FireSafe.DatabaseAccess
 
             return false;
         }
-
-
-
         public Utilizador FindUserByEmail (string email)
         {
             Connection con = new Connection();
@@ -172,8 +167,6 @@ namespace FireSafe.DatabaseAccess
 
             return null;
         }
-
-
         public int LoginDAO (String email, String password)
         {
             int id = -1;
@@ -206,7 +199,6 @@ namespace FireSafe.DatabaseAccess
 
             return id;
         }
-
         public Utilizador FindUserByName(string name)
         {
             Connection con = new Connection();
