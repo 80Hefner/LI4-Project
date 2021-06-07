@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using System.Net.Http;
 
 namespace FireSafe.Controllers
 {
@@ -21,7 +22,7 @@ namespace FireSafe.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             LocationLists model = new LocationLists();
             var locations = new List<FireLocation>()
@@ -32,8 +33,27 @@ namespace FireSafe.Controllers
                 new FireLocation(4, "Bhubaneswar","Bhubaneswar, Odisha", "20.001", "85")
             };
             model.FireLocationList = locations;
-            return View(model);
             //return View();
+/*
+            string apiResponse;
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = await httpClient.GetAsync("https://api-dev.fogos.pt/new/fires"))
+                {
+                    apiResponse = await response.Content.ReadAsStringAsync();
+                }
+            }
+
+            ViewBag.apiResponse = apiResponse;
+*/
+            return View(model);
+        }
+
+        public IActionResult Init()
+        {
+            Localizacao.parseDataSet("DataSets/freguesias-metadata.json");
+
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult HomeLogado()

@@ -38,7 +38,7 @@ CREATE TABLE [dbo].[Localizacao] (
   [Id] INT IDENTITY(1,1) NOT NULL,
   [Distrito] VARCHAR(45) NOT NULL,
   [Concelho] VARCHAR(45) NOT NULL,
-  [Freguesia] VARCHAR(45) NOT NULL,
+  [Freguesia] VARCHAR(150) NOT NULL,
   PRIMARY KEY ([Id]));
 GO
 

@@ -83,5 +83,31 @@ namespace FireSafe.DatabaseAccess
 
             return loc;
         }
+        public bool insereLocalizacao(string distrito, string concelho, string freguesia)
+        {
+            Localizacao l = FindLocByStrings(freguesia, concelho, distrito);
+
+            if (l == null)
+            {
+                Connection con = new Connection();
+
+                using (SqlCommand command = con.Fetch().CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = "INSERT INTO [Localizacao] Values(@distrito, @concelho, @freguesia)";
+
+                    command.Parameters.Add("@distrito", SqlDbType.VarChar).Value = distrito;
+                    command.Parameters.Add("@concelho", SqlDbType.VarChar).Value = concelho;
+                    command.Parameters.Add("@freguesia", SqlDbType.VarChar).Value = freguesia;
+
+                    command.ExecuteScalar();
+
+                    con.Close();
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }
