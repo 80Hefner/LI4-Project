@@ -1,10 +1,87 @@
-﻿@{
+﻿@model FireSafe.Models.LocationLists
+@{
     ViewData["Title"] = "HomeLogado";
     ViewData["Utilizador"] = @ViewBag.username;
     Layout = "~/Views/Shared/_LayoutLogado.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<script type='text/javascript'>
+
+    function loadMapScenario() {
+        var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+            credentials: 'AomfAQDZ8xWCIpuN4BSPthxCXOwcqdVyuQX3U9mnMYayCePNVhX7a9V7XAzhg3JU',
+            mapTypeId: Microsoft.Maps.MapTypeId.road,
+            zoom: 6
+        });
+
+        // Create the infobox for the pushpin
+        var infobox = null;
+
+        //declare addMarker function
+        function addMarker(latitude, longitude, title, description, pid)
+        {
+            var marker = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(parseFloat(latitude), parseFloat(longitude)), { color: 'red' });
+
+            infobox = new Microsoft.Maps.Infobox(marker.getLocation(), {
+                visible : false
+            });
+
+            marker.metadata = {
+                id: pid,
+                title: title,
+                description: description
+            };
+
+            Microsoft.Maps.Events.addHandler(marker, 'mouseout', hideInfobox);
+            Microsoft.Maps.Events.addHandler(marker, 'mouseover', showInfobox);
+            Microsoft.Maps.Events.addHandler(marker, 'click', clickIncendio);
+
+
+            infobox.setMap(map);
+            marker.setOptions({ enableHoverStyle: true });
+            map.entities.push(marker);
+        };
+
+        function showInfobox(e) {
+            if (e.target.metadata) {
+                infobox.setOptions({
+                    location: e.target.getLocation(),
+                    title: e.target.metadata.title,
+                    description: e.target.metadata.description,
+                    visible: true
+                });
+            }
+        }
+
+        function hideInfobox(e) {
+            infobox.setOptions({ visible: false });
+        }
+
+        function clickIncendio(e) {
+            var id = e.target.metadata.id;
+            var url = '@Url.Action("ConsultaDadosIncendioLogado", "Incendio", new { id = "__id__"})';
+            window.location.href = url.replace("__id__", id);
+
+        }
+
+        //add markers to map
+        @if (Model.FireLocationList != null)
+        {
+            foreach (FireLocation item in Model.FireLocationList)
+            {
+                @:addMarker('@item.Latitude', '@item.Longitude', '@item.Title', '@item.Description', @item.LocationId);
+            }
+        }
+
+    }
+
+    loadMapScenario();
+</script>
+<script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?callback=loadMapScenario&key=AomfAQDZ8xWCIpuN4BSPthxCXOwcqdVyuQX3U9mnMYayCePNVhX7a9V7XAzhg3JU' async defer></script>
+
+<div class="row">
+    <div class="col-md-12 map">
+        <div id="myMap" style="width:150%; height:775px; margin-left:-25%"></div>
+    </div>
 </div>
+

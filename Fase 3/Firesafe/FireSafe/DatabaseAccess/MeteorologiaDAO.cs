@@ -19,7 +19,7 @@ namespace FireSafe.DatabaseAccess
             using (SqlCommand command = con.Fetch().CreateCommand())
             {
                 command.CommandType = CommandType.Text;
-                command.CommandText = "SELECT * FROM [Localizacao] WHERE Id=@Id";
+                command.CommandText = "SELECT * FROM [Meteorologia] WHERE Id=@Id";
 
                 command.Parameters.Add("@Id", SqlDbType.Int).Value = id;
 

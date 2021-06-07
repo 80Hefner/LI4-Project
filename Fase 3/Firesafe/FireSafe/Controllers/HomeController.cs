@@ -27,10 +27,7 @@ namespace FireSafe.Controllers
             LocationLists model = new LocationLists();
             var locations = new List<FireLocation>()
             {
-                new FireLocation(1, "Amares","Descrição bonita de Ferreiros", "41.633643", "-8.351730"),
-                new FireLocation(2, "Hyderabad","Hyderabad, Telengana", "0","0" ),
-                new FireLocation(3, "Bengaluru","Bengaluru, Karnataka", "12.99", "77.5"),
-                new FireLocation(4, "Bhubaneswar","Bhubaneswar, Odisha", "20.001", "85")
+                new FireLocation(1, "Cousso, Melgaco, Viana do Castelo","Incêndio Florestal", "42.064973", "-8.317543"),
             };
             model.FireLocationList = locations;
             //return View();
@@ -59,7 +56,27 @@ namespace FireSafe.Controllers
         public IActionResult HomeLogado()
         {
             ViewBag.username = utililzadorAtual;
-            return View();
+
+            LocationLists model = new LocationLists();
+            var locations = new List<FireLocation>()
+            {
+                new FireLocation(1, "Cousso, Melgaco, Viana do Castelo","Incêndio Florestal", "42.064973", "-8.317543"),
+            };
+            model.FireLocationList = locations;
+            //return View();
+            /*
+                        string apiResponse;
+                        using (var httpClient = new HttpClient())
+                        {
+                            using (var response = await httpClient.GetAsync("https://api-dev.fogos.pt/new/fires"))
+                            {
+                                apiResponse = await response.Content.ReadAsStringAsync();
+                            }
+                        }
+
+                        ViewBag.apiResponse = apiResponse;
+            */
+            return View(model);
         }
 
         public IActionResult Privacy()
