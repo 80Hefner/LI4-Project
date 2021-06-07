@@ -10,10 +10,10 @@ namespace FireSafe.Models
         public int LocationId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
 
-        public FireLocation(int locid, string title, string desc, double latitude, double longitude)
+        public FireLocation(int locid, string title, string desc, string latitude, string longitude)
         {
             this.LocationId = locid;
             this.Title = title;

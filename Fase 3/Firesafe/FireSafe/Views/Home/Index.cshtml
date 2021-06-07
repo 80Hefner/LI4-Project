@@ -19,7 +19,7 @@
         //declare addMarker function
         function addMarker(latitude, longitude, title, description, pid)
         {
-            var marker = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(latitude, longitude), { color: 'green' });
+            var marker = new Microsoft.Maps.Pushpin(new Microsoft.Maps.Location(parseFloat(latitude), parseFloat(longitude)), { color: 'green' });
 
             infobox = new Microsoft.Maps.Infobox(marker.getLocation(), {
                 visible : false
@@ -59,11 +59,10 @@
         {
             foreach (FireLocation item in Model.FireLocationList)
             {
-                @:addMarker(@item.Latitude, @item.Longitude, '@item.Title', '@item.Description', @item.LocationId);
+                @:addMarker('@item.Latitude', '@item.Longitude', '@item.Title', '@item.Description', @item.LocationId);
             }
         }
 
-        addMarker(41.65, -8.3667, 'Amares', 'Ferreiros - Amares', 20);
     }
 
     loadMapScenario();
