@@ -8,6 +8,11 @@ DELETE FROM [dbo].[Utilizador];
 DELETE FROM [dbo].[Localizacao];
 DELETE FROM [dbo].[Meteorologia];
 
+DBCC CHECKIDENT ('[dbo].[Incendio]', RESEED, 0);
+DBCC CHECKIDENT ('[dbo].[Utilizador]', RESEED, 0);
+DBCC CHECKIDENT ('[dbo].[Localizacao]', RESEED, 0);
+DBCC CHECKIDENT ('[dbo].[Meteorologia]', RESEED, 0);
+GO
 
 INSERT INTO [dbo].[Utilizador]
            ([Nome]
@@ -26,9 +31,7 @@ INSERT INTO [dbo].[Localizacao]
            ,[Concelho]
            ,[Freguesia])
     VALUES
-        ('Viana do Castelo','Viana do Castelo','Meadela'),
         ('Viana do Castelo','Melgaço','Cousso'),
-        ('Braga','Braga','São Victor'),
         ('Braga','Amares','Ferreiros, Prozelo e Besteiros')
 GO
 
@@ -58,8 +61,8 @@ INSERT INTO [dbo].[Incendio]
            ,[Inicio]
            ,[Fim])
      VALUES
-           (1,2,45,7,1,42.064973,-8.317543,2,convert(smalldatetime,'2021-06-05 07:30:00',20),convert(smalldatetime,'2021-06-05 14:00:00',20)),           
-           (2,4,32,4,0,41.644726,-8.368616,1,convert(smalldatetime,'2021-06-05 13:00:00',20),NULL)
+           (1,1,45,7,1,42.064973,-8.317543,2,convert(smalldatetime,'2021-06-05 07:30:00',20),convert(smalldatetime,'2021-06-05 14:00:00',20)),           
+           (2,2,32,4,0,41.644726,-8.368616,1,convert(smalldatetime,'2021-06-05 13:00:00',20),NULL)
 GO
 
 INSERT INTO [dbo].[Favorito]
@@ -67,9 +70,8 @@ INSERT INTO [dbo].[Favorito]
            ,[Localizacao_Id])
      VALUES
            (1,1),
-           (1,3),
+           (1,2),
+           (2,1),
            (2,2),
-           (2,3),
-           (3,4),
-           (3,3)
+           (3,1)
 GO
